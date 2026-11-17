@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Band from '../components/Band.astro';
 import Banner from '../components/Banner.astro';
 import Citation from '../components/Citation.astro';
 import NewsItem from '../components/NewsItem.astro';
@@ -12,21 +13,27 @@ const latestNews = (await getCollection('news')).sort(
 ---
 
 <Layout title="Home">
-  <Banner alt="Alex writing equations on a whiteboard" />
+  <Band>
+    <Banner alt="Alex writing equations on a whiteboard" />
 
-  <h1>Hi, I'm Alex.</h1>
-  <p>
-    I love all things engineering and science! As a scientist and engineer, my goal is to help
-    discover and create new things that help people. Part of that mission is making complex
-    topics understandable to everyone, which I do through writing and content creation. I hope
-    you find something helpful in what I've made!
-  </p>
+    <h1>Hi, I'm Alex.</h1>
+    <p>
+      I love all things engineering and science! As a scientist and engineer, my goal is to help
+      discover and create new things that help people. Part of that mission is making complex
+      topics understandable to everyone, which I do through writing and content creation. I hope
+      you find something helpful in what I've made!
+    </p>
+  </Band>
 
-  <h2>Latest news</h2>
-  <NewsItem entry={latestNews} />
-  <p><a href="/news/">All news</a></p>
+  <Band tone="sage">
+    <h2>Latest news</h2>
+    <NewsItem entry={latestNews} />
+    <p><a href="/news/">All news</a></p>
+  </Band>
 
-  <h2>Latest publication</h2>
-  <Citation pub={latestPublication} />
-  <p><a href="/research/">All research</a></p>
+  <Band tone="sand">
+    <h2>Latest publication</h2>
+    <Citation pub={latestPublication} />
+    <p><a href="/research/">All research</a></p>
+  </Band>
 </Layout>

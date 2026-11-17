@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Band from '../../components/Band.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -13,8 +14,11 @@ const { title, date, youtube } = item.data;
 ---
 
 <Layout title={title}>
+  <Band tone="sand">
   <span class="date">{date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
   <h1>{title}</h1>
+  </Band>
+  <Band>
   <Content />
   {youtube && (
     <div class="video">
@@ -29,4 +33,5 @@ const { title, date, youtube } = item.data;
     <p><a href={`https://www.youtube.com/watch?v=${youtube}`}>Watch on YouTube</a></p>
   )}
   <p><a href="/news/">← All news</a></p>
+  </Band>
 </Layout>

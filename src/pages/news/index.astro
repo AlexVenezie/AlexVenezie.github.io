@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Band from '../../components/Band.astro';
 import NewsItem from '../../components/NewsItem.astro';
 import { getCollection } from 'astro:content';
 
@@ -9,6 +10,10 @@ const items = (await getCollection('news')).sort(
 ---
 
 <Layout title="News">
-  <h1>News</h1>
-  {items.map((n) => <NewsItem entry={n} />)}
+  <Band tone="sand">
+    <h1>News</h1>
+  </Band>
+  <Band>
+    {items.map((n) => <NewsItem entry={n} />)}
+  </Band>
 </Layout>

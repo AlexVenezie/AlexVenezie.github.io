@@ -1,23 +1,28 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Band from '../../components/Band.astro';
 import Citation from '../../components/Citation.astro';
 import { publications } from '../../data/publications';
 ---
 
 <Layout title="Research">
-  <h1>Research</h1>
-  <p>
-    As a PhD student, my research combines medical imaging with modern computational techniques
-    to better understand the mechanics of traumatic brain injury (TBI). My work ranges from
-    finite element solvers, machine learning and AI to metamaterials, soft tissue mechanics and
-    much more! Browse some of my recent publications below to get an idea of my work.
-  </p>
+  <Band tone="sage">
+    <h1>Research</h1>
+    <p>
+      As a PhD student, my research combines medical imaging with modern computational techniques
+      to better understand the mechanics of traumatic brain injury (TBI). My work ranges from
+      finite element solvers, machine learning and AI to metamaterials, soft tissue mechanics and
+      much more! Browse some of my recent publications below to get an idea of my work.
+    </p>
+  </Band>
 
-  <h2>Publications</h2>
-  <p>
-    See also my <a href="https://scholar.google.com/citations?user=jbvnWh8AAAAJ&hl=en">Google Scholar profile</a>.
-  </p>
-  {publications.map((pub) => (
-    <div class="entry"><Citation pub={pub} /></div>
-  ))}
+  <Band>
+    <h2>Publications</h2>
+    <p>
+      See also my <a href="https://scholar.google.com/citations?user=jbvnWh8AAAAJ&hl=en">Google Scholar profile</a>.
+    </p>
+    {publications.map((pub) => (
+      <div class="entry"><Citation pub={pub} /></div>
+    ))}
+  </Band>
 </Layout>

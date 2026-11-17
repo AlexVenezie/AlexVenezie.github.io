@@ -1,18 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Band from '../components/Band.astro';
 
-// TODO: create a free form at https://formspree.io and paste your form endpoint here.
-// A static site cannot receive messages itself, so this posts to that service, which emails you.
-const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+// A static site cannot receive messages itself, so this posts to Formspree, which emails them to me.
+const FORM_ENDPOINT = 'https://formspree.io/f/xwloowaa';
 ---
 
 <Layout title="Contact">
-  <h1>Contact</h1>
-  <p>
+  <Band tone="sage">
+    <h1>Contact</h1>
+    <p>
     I'm happy to hear from prospective students, collaborators, journalists and anyone curious
     about my work. Send a message below, or email me directly at{' '}
     <a href="mailto:venezie@wustl.edu">venezie@wustl.edu</a>.
-  </p>
+    </p>
+  </Band>
+
+  <Band>
 
   <form action={FORM_ENDPOINT} method="POST">
     <label>
@@ -29,4 +33,5 @@ const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
     </label>
     <button type="submit">Send</button>
   </form>
+  </Band>
 </Layout>

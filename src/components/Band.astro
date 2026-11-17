@@ -1,0 +1,10 @@
+---
+interface Props {
+  tone?: 'plain' | 'sage' | 'sand';
+}
+const { tone = 'plain' } = Astro.props;
+---
+
+<section class={`band ${tone}`}>
+  <div class="wrap"><slot /></div>
+</section>
