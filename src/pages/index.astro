@@ -8,26 +8,72 @@ const latest = (await getCollection('news'))
 ---
 
 <Layout title="About">
-  <h1>Hi, I'm Alex.</h1>
+  <div class="hero">
+    <div>
+      <h1>Hi, I'm Alex.</h1>
+      <p>
+        I'm a PhD student in Mechanical Engineering at Washington University in St. Louis, in the
+        Bayly Lab, advised by Philip Bayly. I study traumatic brain injury (TBI) using medical
+        imaging and computing.
+      </p>
+    </div>
+    <img class="headshot" src="/headshot.png" alt="Portrait of Alex Venezie" width="176" height="176" />
+  </div>
+
   <p>
-    I'm a PhD student in the Bayly Lab in the McKelvey School of Engineering at Washington
-    University in St. Louis, advised by Dr. Phil Bayly. I study the biomechanics of traumatic
-    brain injury (TBI).
+    My work combines magnetic resonance elastography (MRE), diffusion tensor imaging (DTI),
+    machine learning and metamaterial manufacturing to understand how the brain and other soft
+    tissues respond to mechanical loading. Before WashU, I studied brain blood-vessel mechanics
+    at the University of Utah, where I earned my B.S. in Mechanical Engineering.
   </p>
   <p>
-    My work builds 3D-printed lattice phantoms that mimic the anisotropic, viscoelastic behavior
-    of brain tissue, so that magnetic resonance elastography (MRE) can be validated against a
-    known ground truth. I use finite element modeling, Gaussian process surrogates and inverse
-    design to get there.
+    Outside the lab I enjoy music, soccer, coding and cooking.{' '}
+    <a href="/research/">Read about my research</a> or <a href="/contact/">get in touch</a>.
   </p>
-  <p>
-    I did my B.S. in Mechanical Engineering at the University of Utah. Outside the lab I enjoy
-    soccer and cooking.
-  </p>
-  <p>
-    <a href="/research/">Read about my research</a> ·
-    <a href="mailto:you@wustl.edu">Email me</a> ·
-    <a href="/cv.pdf">CV (PDF)</a>
+
+  <h2>Education</h2>
+  <div class="entry">
+    <h3>Ph.D., Mechanical Engineering</h3>
+    <div class="where">Washington University in St. Louis · 2026 – present</div>
+    <p>Focus: brain biomechanics in TBI via medical imaging and computing.</p>
+  </div>
+  <div class="entry">
+    <h3>B.S., Mechanical Engineering</h3>
+    <div class="where">University of Utah · May 2026</div>
+    <p>Focus: tissue biomechanics of the brain vasculature in TBI.</p>
+  </div>
+
+  <h2>Experience</h2>
+  <div class="entry">
+    <h3>Graduate Researcher</h3>
+    <div class="where">Washington University in St. Louis · May 2026 – present</div>
+    <p>MRE, DTI, machine learning and metamaterial manufacturing, across brain, skull, kidney, back muscle and spine. Advisor: Philip Bayly.</p>
+  </div>
+  <div class="entry">
+    <h3>Undergraduate Researcher</h3>
+    <div class="where">University of Utah · May 2024 – May 2026</div>
+    <p>Built a MATLAB pipeline for voxel-based finite element analysis from magnetic resonance angiography, quantifying vessel density, directionality and strain, and studied vessel softening. Advisor: Ken Monson.</p>
+  </div>
+  <div class="entry">
+    <h3>Undergraduate Researcher</h3>
+    <div class="where">University of Utah · May 2023 – Dec. 2023</div>
+    <p>Improved atmospheric water harvesting devices using dip-coated metal organic frameworks. Advisor: Sameer Rao.</p>
+  </div>
+  <div class="entry">
+    <h3>Engineering Intern</h3>
+    <div class="where">Bloom Surgical · Jan. 2024 – Aug. 2025</div>
+    <p>Improved lens-cleaning mechanisms for laparoscopic tools and evaluated them with image quality metrics.</p>
+  </div>
+
+  <h2>Awards</h2>
+  <ul>
+    <li>Undergraduate Research Opportunity Program (2024, 2025)</li>
+    <li>Dean's List (2022, 2023)</li>
+  </ul>
+
+  <h2>Skills</h2>
+  <p class="tags">
+    MATLAB, Python, C, Arduino, FEBio, Abaqus, COMSOL, OnShape, SolidWorks, LabVIEW
   </p>
 
   <h2>Latest news</h2>

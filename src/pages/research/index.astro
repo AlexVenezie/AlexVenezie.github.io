@@ -1,20 +1,43 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-const items = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout title="Research">
   <h1>Research</h1>
   <p>
-    I work on traumatic brain injury biomechanics, with a focus on building physical models that
-    let us test how well MRE recovers tissue properties.
+    I study how traumatic brain injury (TBI) affects the mechanics of the brain, using medical
+    imaging and computation. At WashU, my work spans magnetic resonance elastography (MRE),
+    diffusion tensor imaging (DTI), machine learning and metamaterial manufacturing. As an
+    undergraduate at the University of Utah, I worked on how cerebral blood vessels soften after
+    overstretch.
   </p>
-  {items.map((r) => (
-    <div class="card">
-      <h2><a href={`/research/${r.id}/`}>{r.data.title}</a></h2>
-      <p>{r.data.summary}</p>
-    </div>
-  ))}
+
+  <h2>Publications</h2>
+  <div class="entry">
+    <p>
+      Shojaeianforoud, F., <strong>Venezie, A. M.</strong>, Rubio, J. E., Reifman, J., Coats, B., &amp;
+      Monson, K. L. (2025). TBI-induced vessel softening increases brain susceptibility to injury
+      with repeated head trauma. <em>Journal of the Mechanical Behavior of Biomedical Materials</em>,
+      107287.
+      <a href="https://doi.org/10.1016/j.jmbbm.2025.107287">doi:10.1016/j.jmbbm.2025.107287</a>
+    </p>
+  </div>
+  <h3>In preparation</h3>
+  <div class="entry">
+    <p>
+      Quantitative imaging of changes in collagen and elastin fiber orientation with repetitive
+      axial overstretch in cerebral arteries.
+    </p>
+  </div>
+
+  <h2>Posters</h2>
+  <div class="entry">
+    <p>MRE measurements in anisotropic soft tissue: brain, muscle and kidney. PANTHER, 2026.</p>
+  </div>
+  <div class="entry">
+    <p>
+      Optimization of bioprinting parameters for cerebral blood vessel fabrication using Bayesian
+      machine learning. AI Summit, 2025.
+    </p>
+  </div>
 </Layout>

@@ -10,13 +10,4 @@ const news = defineCollection({
   }),
 });
 
-const research = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/research' }),
-  schema: z.object({
-    title: z.string(),
-    summary: z.string(),
-    order: z.number(),
-  }),
-});
-
-export const collections = { news, research };
+export const collections = { news };
