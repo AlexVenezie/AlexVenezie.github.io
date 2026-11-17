@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('news')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout title="News">
+  <h1>News</h1>
+  <ul class="list">
+    {items.map((n) => (
+      <li>
+        <span class="date">{n.data.date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
+        <a href={`/news/${n.id}/`}>{n.data.title}</a>
+      </li>
+    ))}
+  </ul>
+</Layout>

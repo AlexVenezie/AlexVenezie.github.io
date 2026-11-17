@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const latest = (await getCollection('news'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<Layout title="About">
+  <h1>Hi, I'm Alex.</h1>
+  <p>
+    I'm a PhD student in the Bayly Lab in the McKelvey School of Engineering at Washington
+    University in St. Louis, advised by Dr. Phil Bayly. I study the biomechanics of traumatic
+    brain injury (TBI).
+  </p>
+  <p>
+    My work builds 3D-printed lattice phantoms that mimic the anisotropic, viscoelastic behavior
+    of brain tissue, so that magnetic resonance elastography (MRE) can be validated against a
+    known ground truth. I use finite element modeling, Gaussian process surrogates and inverse
+    design to get there.
+  </p>
+  <p>
+    I did my B.S. in Mechanical Engineering at the University of Utah. Outside the lab I enjoy
+    soccer and cooking.
+  </p>
+  <p>
+    <a href="/research/">Read about my research</a> ·
+    <a href="mailto:you@wustl.edu">Email me</a> ·
+    <a href="/cv.pdf">CV (PDF)</a>
+  </p>
+
+  <h2>Latest news</h2>
+  <ul class="list">
+    {latest.map((n) => (
+      <li>
+        <span class="date">{n.data.date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
+        <a href={`/news/${n.id}/`}>{n.data.title}</a>
+      </li>
+    ))}
+  </ul>
+</Layout>

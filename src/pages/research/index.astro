@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const items = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="Research">
+  <h1>Research</h1>
+  <p>
+    I work on traumatic brain injury biomechanics, with a focus on building physical models that
+    let us test how well MRE recovers tissue properties.
+  </p>
+  {items.map((r) => (
+    <div class="card">
+      <h2><a href={`/research/${r.id}/`}>{r.data.title}</a></h2>
+      <p>{r.data.summary}</p>
+    </div>
+  ))}
+</Layout>
