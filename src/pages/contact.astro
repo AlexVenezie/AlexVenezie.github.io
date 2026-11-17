@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Links from '../components/Links.astro';
 
 // TODO: create a free form at https://formspree.io and paste your form endpoint here.
 // A static site cannot receive messages itself, so this posts to that service, which emails you.
@@ -30,7 +29,4 @@ const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
     </label>
     <button type="submit">Send</button>
   </form>
-
-  <h2>Elsewhere</h2>
-  <Links />
 </Layout>
