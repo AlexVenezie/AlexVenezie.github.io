@@ -14,6 +14,8 @@ const nav = [
   { href: '/contact/', label: 'Contact' },
 ];
 const path = Astro.url.pathname;
+const description =
+  'Alex Venezie: PhD student in mechanical engineering at Washington University in St. Louis, studying the mechanics of traumatic brain injury.';
 ---
 
 <!doctype html>
@@ -22,8 +24,13 @@ const path = Astro.url.pathname;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} | Alex Venezie</title>
-    <meta name="description" content="Alex Venezie: PhD student in mechanical engineering at Washington University in St. Louis, studying the mechanics of traumatic brain injury." />
+    <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | Alex Venezie`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/og.png', Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <header>

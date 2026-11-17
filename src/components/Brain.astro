@@ -1,0 +1,36 @@
+---
+// A simple side-view brain that spins about its vertical axis (pure CSS, no JS).
+---
+
+<div class="brain" role="img" aria-label="A spinning brain">
+  <svg viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg">
+    <path class="stem" d="M96 112 C98 130 98 146 94 160 L112 160 C114 144 116 128 120 112 Z" />
+    <path class="cerebellum" d="M112 112 C132 104 168 108 172 124 C168 142 130 146 112 130 Z" />
+    <path class="cerebrum" d="M26 92 C14 62 42 26 86 22 C122 14 170 28 180 64 C190 88 172 112 148 112 C136 118 124 118 112 112 C92 120 64 122 44 114 C32 110 28 102 26 92 Z" />
+    <g class="folds" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M48 84 C56 64 70 62 76 72 C82 82 94 62 104 56" />
+      <path d="M40 100 C52 94 62 100 72 94 C84 88 92 98 104 92" />
+      <path d="M70 40 C78 48 90 38 98 46 C108 54 120 40 132 48" />
+      <path d="M108 74 C118 64 132 72 140 62 C148 52 160 60 164 70" />
+      <path d="M116 98 C128 92 140 100 150 92 C158 86 166 90 170 96" />
+      <path d="M60 58 C54 50 58 42 66 38" />
+      <path d="M136 36 C146 38 154 44 158 52" />
+      <path d="M92 76 C96 86 90 94 84 98" />
+    </g>
+    <g class="folds" fill="none" stroke-linecap="round">
+      <path d="M124 116 C136 122 150 124 162 120" />
+      <path d="M120 126 C134 132 148 134 160 130" />
+    </g>
+  </svg>
+</div>
+
+<style>
+  .brain { width: 11rem; margin: 0 auto 1.25rem; perspective: 700px; }
+  svg { display: block; width: 100%; height: auto; animation: spin 4s linear infinite; transform-style: preserve-3d; }
+  .cerebrum { fill: var(--bg); stroke: var(--accent); stroke-width: 3; }
+  .cerebellum { fill: var(--sand); stroke: var(--accent); stroke-width: 3; }
+  .stem { fill: var(--sand); stroke: var(--accent); stroke-width: 3; }
+  .folds { stroke: var(--accent); stroke-width: 3; opacity: 0.85; }
+  @keyframes spin { to { transform: rotateY(360deg); } }
+  @media (prefers-reduced-motion: reduce) { svg { animation: none; } }
+</style>
