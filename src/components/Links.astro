@@ -1,0 +1,20 @@
+---
+// Single list of profile links, shown on the home and Contact pages.
+const links = [
+  { label: 'Email', href: 'mailto:venezie@wustl.edu' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alexandervenezie/' },
+  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=jbvnWh8AAAAJ&hl=en' },
+  { label: 'GitHub', href: 'https://github.com/AlexVenezie' },
+];
+---
+
+<ul class="social">
+  {links.map((l) => (
+    <li>
+      <a href={l.href}>
+        {l.label}
+        <span aria-hidden="true">↗</span>
+      </a>
+    </li>
+  ))}
+</ul>

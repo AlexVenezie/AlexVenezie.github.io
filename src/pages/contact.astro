@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Links from '../components/Links.astro';
 
 // TODO: create a free form at https://formspree.io and paste your form endpoint here.
 // A static site cannot receive messages itself, so this posts to that service, which emails you.
@@ -10,7 +11,7 @@ const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
   <h1>Contact</h1>
   <p>
     I'm happy to hear from prospective students, collaborators, journalists and anyone curious
-    about my work. Send a message below, or email me directly at
+    about my work. Send a message below, or email me directly at{' '}
     <a href="mailto:venezie@wustl.edu">venezie@wustl.edu</a>.
   </p>
 
@@ -31,9 +32,5 @@ const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
   </form>
 
   <h2>Elsewhere</h2>
-  <ul>
-    <li><a href="https://www.linkedin.com/in/alexandervenezie/">LinkedIn</a></li>
-    <li><a href="https://scholar.google.com/citations?user=jbvnWh8AAAAJ&hl=en">Google Scholar</a></li>
-    <li><a href="https://github.com/AlexVenezie">GitHub</a></li>
-  </ul>
+  <Links />
 </Layout>
