@@ -13,7 +13,7 @@ const items = (await getCollection('news')).sort(
   <Band tone="sand">
     <h1>News</h1>
   </Band>
-  <Band>
+  <Band tone="sage">
     {items.map((n) => <NewsItem entry={n} />)}
   </Band>
 </Layout>
