@@ -12,4 +12,14 @@ We trained a neural network on physics simulations, then built a camera pipeline
 - [Try the demo](https://uncrumple-demo.vercel.app)
 - [Code on GitHub](https://github.com/NickArmstrong04/uncrumple)
 
-<!-- TODO: add the YouTube demo video here once we have the URL. -->
+<div class="video">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/gC5Nzkt-WR4"
+    title="Uncrumple demo video"
+    loading="lazy"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
+
+[Watch on YouTube](https://www.youtube.com/watch?v=gC5Nzkt-WR4)
