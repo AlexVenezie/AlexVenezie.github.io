@@ -19,13 +19,4 @@ const research = defineCollection({
   }),
 });
 
-// Questions you have answered. Each file: the question is the title, the body is your answer.
-const ask = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/ask' }),
-  schema: z.object({
-    question: z.string(),
-    date: z.coerce.date(),
-  }),
-});
-
-export const collections = { news, research, ask };
+export const collections = { news, research };
