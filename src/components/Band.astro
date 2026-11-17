@@ -5,6 +5,8 @@ interface Props {
 const { tone = 'plain' } = Astro.props;
 ---
 
-<section class={`band ${tone}`}>
-  <div class="wrap"><slot /></div>
+<section class="band">
+  <div class="wrap">
+    <div class={`panel ${tone}`}><slot /></div>
+  </div>
 </section>
