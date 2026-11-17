@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Banner from '../components/Banner.astro';
 import { getCollection } from 'astro:content';
 
 const latest = (await getCollection('news'))
@@ -8,6 +9,10 @@ const latest = (await getCollection('news'))
 ---
 
 <Layout title="About">
+  <Banner
+    title="Brain biomechanics through medical imaging and computing"
+    subtitle="PhD student · Bayly Lab · Washington University in St. Louis"
+  />
   <div class="hero">
     <div>
       <h1>Hi, I'm Alex.</h1>
