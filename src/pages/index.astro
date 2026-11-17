@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Banner from '../components/Banner.astro';
 import Citation from '../components/Citation.astro';
+import NewsItem from '../components/NewsItem.astro';
 import { getCollection } from 'astro:content';
 import { latestPublication } from '../data/publications';
 
@@ -22,11 +23,8 @@ const latestNews = (await getCollection('news')).sort(
   </p>
 
   <h2>Latest news</h2>
-  <p>
-    <span class="date">{latestNews.data.date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
-    <a href={`/news/${latestNews.id}/`}>{latestNews.data.title}</a>{' '}
-    · <a href="/news/">All news</a>
-  </p>
+  <NewsItem entry={latestNews} />
+  <p><a href="/news/">All news</a></p>
 
   <h2>Latest publication</h2>
   <Citation pub={latestPublication} />

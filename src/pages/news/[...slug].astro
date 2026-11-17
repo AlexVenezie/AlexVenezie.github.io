@@ -9,11 +9,24 @@ export async function getStaticPaths() {
 
 const { item } = Astro.props;
 const { Content } = await render(item);
+const { title, date, youtube } = item.data;
 ---
 
-<Layout title={item.data.title}>
-  <span class="date">{item.data.date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
-  <h1>{item.data.title}</h1>
+<Layout title={title}>
+  <span class="date">{date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
+  <h1>{title}</h1>
   <Content />
+  {youtube && (
+    <div class="video">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${youtube}`}
+        title={`Video: ${title}`}
+        loading="lazy"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <p><a href={`https://www.youtube.com/watch?v=${youtube}`}>Watch on YouTube</a></p>
+  )}
   <p><a href="/news/">← All news</a></p>
 </Layout>

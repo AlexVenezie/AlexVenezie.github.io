@@ -7,6 +7,7 @@ const news = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
+    youtube: z.string().optional(), // YouTube video ID; adds a thumbnail and embed
   }),
 });
 

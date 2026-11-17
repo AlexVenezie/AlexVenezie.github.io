@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'news'>;
+}
+const { entry } = Astro.props;
+const { title, date, youtube } = entry.data;
+const href = `/news/${entry.id}/`;
+const thumb = youtube ? `https://i.ytimg.com/vi/${youtube}/hqdefault.jpg` : undefined;
+---
+
+<div class="news-item">
+  {thumb && (
+    <a class="thumb" href={href} tabindex="-1" aria-hidden="true">
+      <img src={thumb} alt="" width="480" height="270" loading="lazy" />
+    </a>
+  )}
+  <div>
+    <span class="date">{date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
+    <a href={href}>{title}</a>
+  </div>
+</div>
