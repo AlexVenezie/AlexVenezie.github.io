@@ -1,0 +1,19 @@
+---
+import type { Publication } from '../data/publications';
+
+interface Props {
+  pub: Publication;
+}
+const { pub } = Astro.props;
+const last = pub.authors.length - 1;
+---
+
+<p>
+  {pub.authors.map((a, i) => (
+    <>
+      {a.startsWith('Venezie') ? <strong>{a}</strong> : a}
+      {i < last - 1 ? ', ' : i === last - 1 ? ', & ' : ' '}
+    </>
+  ))}({pub.year}). {pub.title}. <em>{pub.venue}</em>, {pub.article}.{' '}
+  <a href={`https://doi.org/${pub.doi}`}>doi:{pub.doi}</a>
+</p>

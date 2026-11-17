@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Citation from '../../components/Citation.astro';
+import { publications } from '../../data/publications';
 ---
 
 <Layout title="Research">
@@ -15,15 +17,9 @@ import Layout from '../../layouts/Layout.astro';
   <p>
     See also my <a href="https://scholar.google.com/citations?user=jbvnWh8AAAAJ&hl=en">Google Scholar profile</a>.
   </p>
-  <div class="entry">
-    <p>
-      Shojaeianforoud, F., <strong>Venezie, A. M.</strong>, Rubio, J. E., Reifman, J., Coats, B., &amp;
-      Monson, K. L. (2025). TBI-induced vessel softening increases brain susceptibility to injury
-      with repeated head trauma. <em>Journal of the Mechanical Behavior of Biomedical Materials</em>,
-      107287.
-      <a href="https://doi.org/10.1016/j.jmbbm.2025.107287">doi:10.1016/j.jmbbm.2025.107287</a>
-    </p>
-  </div>
+  {publications.map((pub) => (
+    <div class="entry"><Citation pub={pub} /></div>
+  ))}
   <h3>In preparation</h3>
   <div class="entry">
     <p>

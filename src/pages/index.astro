@@ -1,90 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Banner from '../components/Banner.astro';
+import Citation from '../components/Citation.astro';
 import { getCollection } from 'astro:content';
+import { latestPublication } from '../data/publications';
 
-const latest = (await getCollection('news'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+const latestNews = (await getCollection('news')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+)[0];
 ---
 
-<Layout title="About">
+<Layout title="Home">
   <Banner alt="Alex writing equations on a whiteboard" />
-  <div class="hero">
-    <div>
-      <h1>Hi, I'm Alex.</h1>
-      <p>
-        I'm a PhD student in Mechanical Engineering at Washington University in St. Louis, in the
-        Bayly Lab, advised by Philip Bayly. I study traumatic brain injury (TBI) using medical
-        imaging and computing.
-      </p>
-    </div>
-    <img class="headshot" src="/headshot.png" alt="Portrait of Alex Venezie" width="176" height="176" />
-  </div>
 
+  <h1>Hi, I'm Alex.</h1>
   <p>
     I love all things engineering and science! As a scientist and engineer, my goal is to help
     discover and create new things that help people. Part of that mission is making complex
     topics understandable to everyone, which I do through writing and content creation. I hope
     you find something helpful in what I've made!
   </p>
-  <p>
-    Outside the lab I enjoy music, soccer, coding and cooking.{' '}
-    <a href="/research/">Read about my research</a> or <a href="/contact/">get in touch</a>.
-  </p>
-
-  <h2>Education</h2>
-  <div class="entry">
-    <h3>Ph.D., Mechanical Engineering</h3>
-    <div class="where">Washington University in St. Louis · 2026 – present</div>
-    <p>Focus: brain biomechanics in TBI via medical imaging and computing.</p>
-  </div>
-  <div class="entry">
-    <h3>B.S., Mechanical Engineering</h3>
-    <div class="where">University of Utah · May 2026</div>
-    <p>Focus: tissue biomechanics of the brain vasculature in TBI.</p>
-  </div>
-
-  <h2>Experience</h2>
-  <div class="entry">
-    <h3>Graduate Researcher</h3>
-    <div class="where">Washington University in St. Louis · May 2026 – present</div>
-    <p>MRE, DTI, machine learning and metamaterial manufacturing, across brain, skull, kidney, back muscle and spine. Advisor: Philip Bayly.</p>
-  </div>
-  <div class="entry">
-    <h3>Undergraduate Researcher</h3>
-    <div class="where">University of Utah · May 2024 – May 2026</div>
-    <p>Built a MATLAB pipeline for voxel-based finite element analysis from magnetic resonance angiography, quantifying vessel density, directionality and strain, and studied vessel softening. Advisor: Ken Monson.</p>
-  </div>
-  <div class="entry">
-    <h3>Undergraduate Researcher</h3>
-    <div class="where">University of Utah · May 2023 – Dec. 2023</div>
-    <p>Improved atmospheric water harvesting devices using dip-coated metal organic frameworks. Advisor: Sameer Rao.</p>
-  </div>
-  <div class="entry">
-    <h3>Engineering Intern</h3>
-    <div class="where">Bloom Surgical · Jan. 2024 – Aug. 2025</div>
-    <p>Improved lens-cleaning mechanisms for laparoscopic tools and evaluated them with image quality metrics.</p>
-  </div>
-
-  <h2>Awards</h2>
-  <ul>
-    <li>Undergraduate Research Opportunity Program (2024, 2025)</li>
-    <li>Dean's List (2022, 2023)</li>
-  </ul>
-
-  <h2>Skills</h2>
-  <p class="tags">
-    MATLAB, Python, C, Arduino, FEBio, Abaqus, COMSOL, OnShape, SolidWorks, LabVIEW
-  </p>
 
   <h2>Latest news</h2>
-  <ul class="list">
-    {latest.map((n) => (
-      <li>
-        <span class="date">{n.data.date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
-        <a href={`/news/${n.id}/`}>{n.data.title}</a>
-      </li>
-    ))}
-  </ul>
+  <p>
+    <span class="date">{latestNews.data.date.toLocaleDateString('en-US', { dateStyle: 'long', timeZone: 'UTC' })}</span>
+    <a href={`/news/${latestNews.id}/`}>{latestNews.data.title}</a>{' '}
+    · <a href="/news/">All news</a>
+  </p>
+
+  <h2>Latest publication</h2>
+  <Citation pub={latestPublication} />
+  <p><a href="/research/">All research</a></p>
 </Layout>
