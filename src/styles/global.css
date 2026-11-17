@@ -6,9 +6,9 @@
   --accent: #587049;    /* moss green */
   --accent-fg: #f6f1e4;
   --rule: #e0d6c2;
-  --sage: #9db38c;      /* light green block */
+  --sage: #a3b98d;      /* light green block */
   --sage-fg: #3b2f25;   /* text on sage */
-  --sand: #eadfc3;      /* warm tan block */
+  --sand: #e8d6ae;      /* warm tan block */
   --bark: #86694f;      /* mid brown block */
   --bark-fg: #fbf8f0;
   --shadow: 0 1px 3px rgba(59, 47, 37, 0.08), 0 14px 32px -14px rgba(59, 47, 37, 0.35);
@@ -77,9 +77,11 @@ header { border-bottom: 1px solid var(--rule); }
 .name { font-weight: 700; font-size: 1.3rem; color: var(--fg); text-decoration: none; }
 nav { display: flex; flex-wrap: wrap; gap: 1.1rem; }
 nav a { color: var(--muted); text-decoration: none; }
+@media (max-width: 640px) { nav { gap: 0.5rem 0.85rem; font-size: 0.9rem; } }
 nav a:hover, nav a[aria-current='page'] { color: var(--fg); }
 nav a[aria-current='page'] { border-bottom: 2px solid var(--accent); }
-h1 { font-size: 2.1rem; line-height: 1.2; margin-top: 0; }
+h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 0.75rem; }
+h2 { line-height: 1.25; margin-bottom: 0.6rem; }
 h2 { margin-top: 0; padding-bottom: 0.25rem; }
 footer { padding: 1rem 0 2.5rem; }
 footer .panel { background: var(--bark); color: var(--bark-fg); padding: 1.5rem 2.25rem; border-radius: 28px; box-shadow: var(--shadow); }
@@ -121,9 +123,11 @@ main p, main li { max-width: 58rem; }
 .video { aspect-ratio: 16 / 9; margin: 1.5rem 0 0.5rem; }
 .video iframe { width: 100%; height: 100%; border: 0; border-radius: 8px; }
 
-.news-item { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.news-item { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; padding: 0.75rem 0 1rem; border-bottom: 1px solid var(--rule); }
+.news-item:last-child { border-bottom: 0; padding-bottom: 0; }
 .news-item > div { flex: 1 1 16rem; }
 .news-item .thumb { flex: 0 0 15rem; min-width: 0; max-width: 100%; }
+@media (max-width: 640px) { .news-item .thumb { flex-basis: 100%; } }
 .news-item img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; border: 1px solid var(--rule); }
 
 .social { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 0; margin: 1.25rem 0; }
